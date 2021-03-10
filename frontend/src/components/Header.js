@@ -4,7 +4,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 const header = () => {
   return (
     <header>
-      <Navbar bg='dark' variant='dark' expand='lg' collapseOnselect>
+      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <Navbar.Brand href='/'>GitTix</Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
