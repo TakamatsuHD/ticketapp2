@@ -72,6 +72,8 @@ const Rating = ({ value, text, color }) => {
 Rating.defaultProps = {
   color: "tomato",
 };
+
+// makes sure that the type of the prop is the same value that is expected
 Rating.propTypes = {
   value: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
