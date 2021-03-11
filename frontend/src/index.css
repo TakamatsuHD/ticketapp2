@@ -7,3 +7,9 @@ h3 {
 .rating span {
   margin: 0.1 rem;
 }
+
+.resizedImage {
+  width: 30rem; /* You can set the dimensions to whatever you want */
+  height: 30rem;
+  object-fit: cover;
+}

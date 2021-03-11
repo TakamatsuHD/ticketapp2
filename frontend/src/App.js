@@ -13,6 +13,7 @@ const App = () => {
         <Container>
           {/* this "/" redirects to anywhere so we need to add exact so that it only redirects to homescreen */}
           <Route path='/' component={HomeScreen} exact />
+          {/* this path will show the ticketscreen screen when the path is ticket/:id from the component */}
           <Route path='/ticket/:id' component={TicketScreen} />
         </Container>
       </main>
