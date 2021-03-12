@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
-import tickets from "../tickets";
+import axios from "axios";
 
 const TicketScreen = ({ match }) => {
-  //this findts the ticket by id by passing props in to match the params.id to the ticket
-  const ticket = tickets.find((p) => p._id === match.params.id);
-  console.log(ticket._id);
-
+  const [ticket, setTicket] = useState({});
+  useEffect(() => {
+    const fetchTicket = async () => {
+      const { data } = await axios.get(`/api/tickets/${match.params.id}`);
+      setTicket(data);
+    };
+    fetchTicket();
+  }, [match]);
   return (
     <>
       <Link className='btn btn-dark my-3' to='/'>
