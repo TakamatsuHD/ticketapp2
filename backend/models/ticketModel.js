@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const reviewSchema = mongoose.Schema({
     name: {
         type: String,
@@ -67,6 +68,6 @@ const ticketSchema = monggose.Schema({
   { timestamps: true }
   ),
 
-const User = mongoose.model("User", userSchema);
+const Ticket = mongoose.model("Ticket", ticketSchema);
 
-export default User;
+export default Ticket;
