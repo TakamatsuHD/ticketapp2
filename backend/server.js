@@ -1,8 +1,9 @@
 import express from "express";
-import tickets from "./data/tickets.js";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import colors from "colors";
+import ticketRoutes from "./routes/ticketRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
 
@@ -14,14 +15,11 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-app.get("/api/tickets", (req, res) => {
-  res.json(tickets);
-});
+app.use("/api/tickets", ticketRoutes);
 
-app.get("/api/tickets/:id", (req, res) => {
-  const ticket = tickets.find((p) => p._id === req.params.id);
-  res.json(ticket);
-});
+app.use(notFound);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
