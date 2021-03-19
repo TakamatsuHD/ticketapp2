@@ -20,7 +20,7 @@ const Ticket = ({ ticket }) => {
           {/* this calls the Rating value passing in props ticket.rating and
           ticket.numreviews */}
           <Rating value={ticket.rating} text={ticket.numReviews}></Rating>
-        </Card.Text>
+        </>
         <Card.Text as='h3'>${ticket.price}</Card.Text>
       </Card.Body>
     </Card>
