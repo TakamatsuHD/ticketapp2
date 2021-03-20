@@ -1,29 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import Ticket from "../components/Ticket";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { listTickets } from "../actions/ticketActions";
+import Message from "../components/Message";
+import Loader from "../components/Loader";
 
 const HomeScreen = () => {
-  const [tickets, setTickets] = useState([]);
-
+  const dispatch = useDispatch();
+  const ticketList = useSelector((state) => state.ticketList);
+  const { loading, error, tickets } = ticketList;
   useEffect(() => {
-    const fetchTickets = async () => {
-      const { data } = await axios.get("/api/tickets");
-      setTickets(data);
-    };
-    fetchTickets();
-  }, []);
+    dispatch(listTickets());
+  }, [dispatch]);
+
   return (
-    <div>
+    <>
       <h1>Latest Products</h1>
-      <Row>
-        {tickets.map((ticket) => (
-          <Col key={ticket._id} sm={12} md={6} lg={4} xl={3}>
-            <Ticket ticket={ticket} />
-          </Col>
-        ))}
-      </Row>
-    </div>
+      {loading ? (
+        <Loader></Loader>
+      ) : error ? (
+        <Message variant='danger'>{error}</Message>
+      ) : (
+        <Row>
+          {tickets.map((ticket) => (
+            <Col key={ticket._id} sm={12} md={6} lg={4} xl={3}>
+              <Ticket ticket={ticket} />
+            </Col>
+          ))}
+        </Row>
+      )}
+    </>
   );
 };
 
