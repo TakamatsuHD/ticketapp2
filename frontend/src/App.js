@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import TicketScreen from "./screens/TicketScreen";
+import CartScreen from "./screens/CartScreen";
+
 const App = () => {
   return (
     <Router>
@@ -15,6 +17,7 @@ const App = () => {
           <Route path='/' component={HomeScreen} exact />
           {/* this path will show the ticketscreen screen when the path is ticket/:id from the component */}
           <Route path='/ticket/:id' component={TicketScreen} />
+          <Route path='/cart/:id?' component={CartScreen} />
         </Container>
       </main>
       <Footer />

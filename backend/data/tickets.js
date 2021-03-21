@@ -7,7 +7,7 @@ const tickets = [
     group: "ACDC",
     category: "Rock",
     price: 89.99,
-    countInStock: 10,
+    countInStock: 200,
     rating: 4.5,
     numReviews: 12,
   },
