@@ -7,6 +7,8 @@ import HomeScreen from "./screens/HomeScreen";
 import TicketScreen from "./screens/TicketScreen";
 import CartScreen from "./screens/CartScreen";
 import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+
 const App = () => {
   return (
     <Router>
@@ -15,6 +17,7 @@ const App = () => {
         <Container>
           {/* this path will show the ticketscreen screen when the path is ticket/:id from the component */}
           <Route path="/login" component={LoginScreen} />
+          <Route path="/register" component={RegisterScreen} />
           <Route path="/ticket/:id" component={TicketScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
           {/* this "/" redirects to anywhere so we need to add exact so that it only redirects to homescreen */}
