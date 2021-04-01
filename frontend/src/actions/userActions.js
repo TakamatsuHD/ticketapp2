@@ -2,6 +2,7 @@ import {
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
 } from "../constants/userConstants";
 import axios from "axios";
 
@@ -31,4 +32,16 @@ export const login = (email, password) => async (dispatch) => {
           : error.message,
     });
   }
+};
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem("userInfo");
+  // localStorage.removeItem("cartItems");
+  // localStorage.removeItem("shippingAddress");
+  // localStorage.removeItem("paymentMethod");
+  dispatch({ type: USER_LOGOUT });
+  // dispatch({ type: USER_DETAILS_RESET });
+  // dispatch({ type: ORDER_LIST_MY_RESET });
+  // dispatch({ type: USER_LIST_RESET });
+  // document.location.href = "/login";
 };
